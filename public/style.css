@@ -30,8 +30,29 @@ body {
   color: #5f6368;
   font-weight: 500;
   font-size: 14px;
+  cursor: pointer;
 }
 
+#user-icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#user-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.fallback-icon { color: #5f6368; font-size: 28px; }
+
+/* container & logo (unchanged) */
 .container {
   text-align: center;
   margin-top: 68.7px;
@@ -90,15 +111,90 @@ body {
   color: #4285F4;
 }
 
+/* チャット表示領域（スライド開閉） */
 #result-area {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  transition: max-height 0.4s cubic-bezier(.2,.9,.2,1), opacity 0.35s ease;
   opacity: 0;
   margin-top: 20px;
   font-size: 18px;
   text-align: left;
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* メッセージスタイル（アイコン＋名前＋本文） */
 .chat-message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
   padding: 8px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.msg-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.msg-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.msg-body {
+  flex: 1;
+}
+
+.msg-name {
+  font-weight: 600;
+  color: #202124;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.msg-text {
+  color: #3c4043;
+  font-size: 15px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ニックネームモーダル（見た目は簡潔） */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+}
+
+.modal[aria-hidden="false"] { display: flex; }
+
+.modal-content {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
 }
