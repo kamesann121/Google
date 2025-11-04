@@ -75,15 +75,17 @@ body {
 .logo span:nth-child(5) { color: #0F9D58; }
 .logo span:nth-child(6) { color: #DB4437; }
 
+/* ✅ 左に10cm分伸ばすように見せる */
 .search-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 640px;
+  width: calc(100% + 100px); /* ← 約10cm広げる */
+  max-width: 740px;           /* ← 元の640px + 100px */
+  margin-left: -50px;         /* ← 左にずらして中央バランスを保つ */
 }
 
 #search-input {
   width: 100%;
-  padding: 12.3px 120px 12.3px 150px; /* ← 左側に約10cmの余白を追加！ */
+  padding: 12.3px 120px 12.3px 50px; /* ← 中身の余白は元のまま */
   font-size: 18px;
   border: 1px solid #dfe1e5;
   border-radius: 28px;
@@ -93,7 +95,7 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 148px; /* ← アイコンも左に約10cm移動！ */
+  left: 48px;
   top: 50%;
   transform: translateY(-50%);
   color: #5f6368;
@@ -132,7 +134,6 @@ body {
   box-shadow: 0 1px 6px rgba(32,33,36,0.28);
 }
 
-/* ✅ チャット欄が開いたときのスタイル */
 #result-area.open {
   height: 300px;
   opacity: 1;
