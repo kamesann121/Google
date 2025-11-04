@@ -83,7 +83,7 @@ body {
 
 #search-input {
   width: 100%;
-  padding: 12.3px 120px 12.3px 80px; /* ← 左側だけ3cm広げたよ！ */
+  padding: 12.3px 120px 12.3px 50px; /* ← 元のままに戻したよ！ */
   font-size: 18px;
   border: 1px solid #dfe1e5;
   border-radius: 28px;
@@ -93,7 +93,7 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 18px;
+  left: 48px; /* ← アイコンを左に約3cmずらした！ */
   top: 50%;
   transform: translateY(-50%);
   color: #5f6368;
