@@ -10,18 +10,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// 簡易的なリアルタイムブロードキャスト
 io.on('connection', (socket) => {
   console.log('ユーザー接続:', socket.id);
 
   socket.on('chat:message', (payload) => {
-    // 受け取ったメッセージをそのまま全員に送る（送信者除外しない）
+    // 受け取ったメッセージをそのまま全員に送る（送信者含む）
     io.emit('chat:message', payload);
   });
 
   socket.on('profile:update', (profile) => {
-    // 必要ならサーバー側で保持してオンライン一覧に使える
-    // 今は単純に全体にブロードキャストしておく
     io.emit('profile:update', { id: socket.id, ...profile });
   });
 
