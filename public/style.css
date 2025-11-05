@@ -75,17 +75,17 @@ body {
 .logo span:nth-child(5) { color: #0F9D58; }
 .logo span:nth-child(6) { color: #DB4437; }
 
-/* ✅ 検索バーをさらに左に伸ばす */
+/* ✅ 左3cm・右2cm分広げたバー */
 .search-wrapper {
   position: relative;
-  width: calc(100% + 160px); /* ← 約16cm広げたよ！ */
-  max-width: 800px;
-  margin-left: -80px;         /* ← 左にずらして中央バランスを保つ */
+  width: calc(100% + 50px); /* ← 30px + 20px */
+  max-width: 690px;
+  margin-left: -30px;        /* ← 左に30pxずらして中央バランス調整 */
 }
 
 #search-input {
   width: 100%;
-  padding: 12.3px 48px 12.3px 48px; /* ← 左右の内側余白を調整 */
+  padding: 12.3px 48px 12.3px 48px; /* ← 左右の内側余白は均等に */
   font-size: 18px;
   border: 1px solid #dfe1e5;
   border-radius: 28px;
@@ -93,10 +93,10 @@ body {
   box-shadow: 0 1px 6px rgba(32,33,36,0.28);
 }
 
-/* ✅ 虫眼鏡アイコンを一番左端に */
+/* ✅ 虫眼鏡アイコンを左端にぴったり配置 */
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   color: #5f6368;
@@ -104,15 +104,16 @@ body {
   pointer-events: none;
 }
 
-/* ✅ ボイスとカメラアイコンを一番右端に */
+/* ✅ ボイスとカメラアイコンを右端にぴったり配置 */
 .icon-group {
   position: absolute;
-  right: 12px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   gap: 16px;
   font-size: 18px;
+  padding-right: 12px;
 }
 
 .icon-group i {
